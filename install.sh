@@ -4,7 +4,25 @@ clear
 # ---------------------------------------------------
 sudo apt-get update -y
 sudo apt-get upgrade -y 
-sudo apt-get dist-upgrade -y 
+sudo apt-get dist-upgrade -y
+# ---------------------------------------------------
+clear
+# ---------------------------------------------------
+# PRELOAD - https://pt.wikipedia.org/wiki/Preload
+# ---------------------------------------------------
+nome=preload
+pacote=$(dpkg --get-selections | grep "$nome" ) 
+if [ -n "$pacote" ] ;
+then echo
+    echo "$nome ja esta instalado!"
+    sleep 5
+else echo
+    echo "Instalando $nome"
+    sudo apt-get install $nome -y
+    sudo service preload restart
+    echo "Instalacao do $nome concluida"
+    sleep 5
+fi 
 # ---------------------------------------------------
 clear
 # ---------------------------------------------------
