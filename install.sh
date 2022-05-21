@@ -6,6 +6,76 @@ sudo apt-get update -y
 sudo apt-get upgrade -y 
 sudo apt-get dist-upgrade -y
 # ---------------------------------------------------
+# ---------------------------------------------------
+clear
+# ---------------------------------------------------
+# PIP - https://pypi.org/project/pip/
+# ---------------------------------------------------
+nome=pip
+pacote=$(dpkg --get-selections | grep "$nome" ) 
+if [ -n "$pacote" ] ;
+then echo
+    echo "$nome ja esta instalado!"
+    sleep 5
+else echo
+    echo "Instalando $nome"
+    sudo apt install python3-pip -y
+    echo "Instalacao do $nome concluida"
+    sleep 5
+fi
+# ---------------------------------------------------
+clear
+# ---------------------------------------------------
+# NODE JS - https://nodejs.org/en/
+# ---------------------------------------------------
+nome=nodejs
+pacote=$(dpkg --get-selections | grep "$nome" ) 
+if [ -n "$pacote" ] ;
+then echo
+    echo "$nome ja esta instalado!"
+    sleep 5
+else echo
+    echo "Instalando $nome"
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y $nome
+    echo "Instalacao do $nome concluida"
+    sleep 5
+fi
+# ---------------------------------------------------
+clear
+# ---------------------------------------------------
+# NPM - https://www.npmjs.com/
+# ---------------------------------------------------
+nome=npm
+pacote=$(dpkg --get-selections | grep "$nome" ) 
+if [ -n "$pacote" ] ;
+then echo
+    echo "$nome ja esta instalado!"
+    sleep 5
+else echo
+    echo "Instalando $nome"
+    sudo apt-get install $nome -y
+    echo "Instalacao do $nome concluida"
+    sleep 5
+fi
+# ---------------------------------------------------
+clear
+# ---------------------------------------------------
+# TMUX - https://github.com/tmux/tmux/wiki
+# ---------------------------------------------------
+nome=tmux
+pacote=$(dpkg --get-selections | grep "$nome" ) 
+if [ -n "$pacote" ] ;
+then echo
+    echo "$nome ja esta instalado!"
+    sleep 5
+else echo
+    echo "Instalando $nome"
+    sudo apt-get install $nome -y
+    echo "Instalacao do $nome concluida"
+    sleep 5
+fi
+# ---------------------------------------------------
 clear
 # ---------------------------------------------------
 # PRELOAD - https://pt.wikipedia.org/wiki/Preload
